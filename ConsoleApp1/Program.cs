@@ -1,4 +1,5 @@
 ﻿using BuilderPattern.Method1;
+using BuilderPattern.Method2;
 using System.Text;
 
 
@@ -26,4 +27,20 @@ eb
  
 
 var a = eb.Build().ToString();
-Console.WriteLine(a);
+//Console.WriteLine(a);
+
+var empBuilder = new EmployeeBuilderM1();
+
+var employe = empBuilder
+    .SetFullName("Mustafa Cenan")
+    .SetUserName("54cenan54")
+    .SetEmailAddress("user@gmail.com")
+    .BuildEmployee();
+
+System.Console.WriteLine(employe.FirstName);
+employe.ToString();
+
+
+
+IEmployeeBuilderM2 employeeBuilder = new InternalEmployeeBuilder();
+empBuilder.SetEmailAddress("mustafacenan@gmail.com");
